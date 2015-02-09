@@ -6,9 +6,15 @@ from rango.forms import PageForm
 # Import the Category model
 from rango.models import Category
 from rango.models import Page
+<<<<<<< HEAD
 
 
 
+=======
+
+
+
+>>>>>>> 1f664e9527e30b3c7502c81168c4fa5cc6ab21db
 def index(request):
 	context_dict = {}
 	
@@ -66,14 +72,18 @@ def category(request, category_name_slug):
         # We also add the category object from the database to the context dictionary.
         # We'll use this in the template to verify that the category exists.
         context_dict['category'] = category
+<<<<<<< HEAD
 		
         context_dict['category_name_slug'] = category_name_slug
+=======
+>>>>>>> 1f664e9527e30b3c7502c81168c4fa5cc6ab21db
     except Category.DoesNotExist:
         # We get here if we didn't find the specified category.
         # Don't do anything - the template displays the "no category" message for us.
         pass
 
     # Go render the response and return it to the client.
+<<<<<<< HEAD
     return render(request, 'rango/category.html', context_dict)
 
 
@@ -128,3 +138,6 @@ def add_page(request, category_name_slug):
     context_dict = {'form':form, 'category': cat, 'category_name_slug':category_name_slug}
 
     return render(request, 'rango/add_page.html', context_dict)
+=======
+    return render(request, 'rango/category.html', context_dict)
+>>>>>>> 1f664e9527e30b3c7502c81168c4fa5cc6ab21db
