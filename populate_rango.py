@@ -55,7 +55,22 @@ def populate():
 
     add_page(cat=name_cat,
         title="PythonAnywhere",
-        url="https://www.pythonanywhere.com/user/YanSym/consoles/")		
+        url="https://www.pythonanywhere.com/user/YanSym/consoles/")
+		
+		
+	# updating views of pages
+    update_views_page(title="Official Python Tutorial", newviews = 40)
+    update_views_page(title="How to Think like a Computer Scientist", newviews = 30)
+    update_views_page(title="Learn Python in 10 Minutes", newviews = 100)
+    update_views_page(title="Official Django Tutorial", newviews = 10)
+    update_views_page(title="Django Rocks", newviews = 20)
+    update_views_page(title="How to Tango with Django", newviews = 25)
+    update_views_page(title="Bottle", newviews = 35)
+    update_views_page(title="Flask", newviews = 10)
+    update_views_page(title="GitHub", newviews = 25)
+    update_views_page(title="PythonAnywhere", newviews = 200)
+	
+	
 
     # Print out what we have added to the user.
     for c in Category.objects.all():
@@ -65,10 +80,28 @@ def populate():
 def add_page(cat, title, url, views=0):
     p = Page.objects.get_or_create(category=cat, title=title, url=url, views=views)[0]
     return p
+	
+	
+def update_views_page(title, newviews):
+	p = Page.objects.get(title = title)
+	p.views = newviews
+	p.save()
+	
+
 
 def add_cat(name, views, likes):
     c = Category.objects.get_or_create(name=name, views=views, likes=likes)[0]
     return c
+	
+def update_views_cat(name, newviews):
+	c = Category.objects.get(title = title)
+	c.views = newviews
+	c.save()
+	
+def update_likes_cat(name, newlikes):
+	c = Category.objects.get(title = title)
+	c.likes = newlikes
+	c.save()
 
 # Start execution here!
 if __name__ == '__main__':
