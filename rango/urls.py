@@ -4,9 +4,10 @@ from rango import views
 urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
     url(r'^about/$', views.about, name='about'),
-<<<<<<< HEAD
 	url(r'^add_category/$', views.add_category, name='add_category'), # NEW MAPPING!
 	url(r'^category/(?P<category_name_slug>[\w\-]+)/add_page/$', views.add_page, name='add_page'), # NEW MAPPING!
-=======
->>>>>>> 1f664e9527e30b3c7502c81168c4fa5cc6ab21db
-    url(r'^category/(?P<category_name_slug>[\w\-]+)/$', views.category, name='category'),)
+    url(r'^category/(?P<category_name_slug>[\w\-]+)/$', views.category, name='category'),
+	url(r'^register/$', views.register, name='register'), # ADD NEW PATTERN!
+	url(r'^login/$', views.user_login, name='login'),
+	url(r'^restricted/', views.restricted, name='restricted'),
+	url(r'^logout/$', views.user_logout, name='logout'),)
