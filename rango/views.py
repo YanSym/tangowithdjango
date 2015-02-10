@@ -232,14 +232,15 @@ def user_login(request):
         # No context variables to pass to the template system, hence the
         # blank dictionary object...
         return render(request, 'rango/login.html', {})
-		
-		
+	
+	
 @login_required
 def restricted(request):
-    return HttpResponse("Since you're logged in, you can see this text!")
+	context_dict = {}
+	context_dict['message'] = "Since you're logged in, you can see this text!"
 	
+	return render(request,"rango/restricted.html", context_dict)	
 	
-from django.contrib.auth import logout
 
 # Use the login_required() decorator to ensure only those logged in can access the view.
 @login_required
