@@ -2,17 +2,21 @@
 
 {% load staticfiles %}
 
-{% block title %}This Is The About Page{% endblock %}
+{% block title %}About{% endblock %}
 
 {% block body_block %}
+    <div class="page-header">
+                <h1>About Rango</h1>
+            </div>
+            <div>
+            <p></strong>.</p>
+			
+			<p> <b>Number of visits:</b> {{ visits }}</p>
 
-<h1>Rango says here is the about page.</h1>
+			<strong> {{ aboutboldmessage }} </strong><br />
 
-<p> <b>Number of visits:</b> {{ visits }}</p>
-
-<strong> {{ aboutboldmessage }} </strong><br />
-
-<img src="{% static "images/me.jpg" %}" alt="Picture of Me" /> <!-- New line -->
+            <img  width="400" height="500" src="{% static "images/me.jpg" %}" alt="Picture of Me" />
+            </div>
 {% endblock %}
 
 
