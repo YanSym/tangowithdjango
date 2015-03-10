@@ -79,7 +79,9 @@ def category(request, category_name_slug):
         # Can we find a category name slug with the given name?
         # If we can't, the .get() method raises a DoesNotExist exception.
         # So the .get() method returns one model instance or raises an exception.
-        category = Category.objects.get(slug=category_name_slug)
+        temp = Category.objects.filter(slug=category_name_slug)
+        category = temp[0]
+		
         context_dict['category_name'] = category.name
 
         # Retrieve all of the associated pages.
