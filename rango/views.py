@@ -7,12 +7,27 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from datetime import datetime
+from rango.bing_search import run_query
 
 # Import the Category model
 from rango.models import Category
 from rango.models import Page
 
 from rango.forms import UserForm, UserProfileForm
+
+
+def search(request):
+
+    result_list = []
+
+    if request.method == 'POST':
+        query = request.POST['query'].strip()
+
+        if query:
+            # Run our Bing function to get the results list!
+            result_list = run_query(query)
+
+    return render(request, 'rango/search.html', {'result_list': result_list})
 
 
 
@@ -79,7 +94,9 @@ def category(request, category_name_slug):
         # Can we find a category name slug with the given name?
         # If we can't, the .get() method raises a DoesNotExist exception.
         # So the .get() method returns one model instance or raises an exception.
-        category = Category.objects.get(slug=category_name_slug)
+        temp = Category.objects.filter(slug=category_name_slug)
+        category = temp[0]
+		
         context_dict['category_name'] = category.name
 
         # Retrieve all of the associated pages.
