@@ -1,14 +1,24 @@
 <!DOCTYPE html>
+
+{% load staticfiles %}
+
+{% load rango_extras %}
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
+	
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
     <meta name="viewport" content="width=device-width, initial-scale=1">
+	
     <meta name="description" content="">
+	
     <meta name="author" content="">
-    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+	
+    <link rel="icon" href="http://www.veryicon.com/icon/png/Emoticon/IconTexto%20Emoticons/Cool.png">
 
-    <title>Rango - {% block title %}How to Tango with Django!{% endblock %}</title>
+    <title>Rango Menu - {% block title %} How  to  Tango  with  Django {% endblock %}</title>
 
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">
@@ -17,6 +27,7 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+	
   </head>
 
   <body>
@@ -36,15 +47,23 @@
           <ul class="nav navbar-nav navbar-right">
                 <li><a href="{% url 'index' %}">Home</a></li>
                     {% if user.is_authenticated %}
-                        <li><a href="{% url 'restricted' %}">Restricted Page</a></li>
-                        <li><a href="{% url 'auth_logout' %}?next=/rango/">Logout</a></li>
-                        <li><a href="{% url 'add_category' %}">Add a New Category</a></li>
-                    {% else %}
-                        <li><a href="{% url 'registration_register' %}">Register Here</a></li>
-                        <li><a href="{% url 'auth_login' %}">Login</a></li>
-                    {% endif %}
-                                <li><a href="{% url 'about' %}">About</a></li>
-
+						<li><a href="{% url 'profile' %}">Profile Page</a></li>
+						
+						<li><a href="{% url 'restricted' %}">Restricted Page</a></li>
+						
+						<li><a href="{% url 'auth_password_change' %}">Change your password</a></li>
+						
+						<li><a href="{% url 'add_category' %}">Add a Category</a></li>
+						
+						<li><a href="{% url 'user_list' %}">User list</a></li>
+						
+						<li><a href="{% url 'auth_logout' %}?next=/rango/">Logout</a></li>
+						
+					{% else %}
+						<li><a href="{% url 'registration_register' %}">Register</a></li>
+						<li><a href="{% url 'auth_login' %}">Login</a></li>
+					{% endif %}
+					<li><a href="{% url 'about' %}">About Page</a></li>
               </ul>
         </div>
       </div>
@@ -52,10 +71,15 @@
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-                {% block side_block %}{% endblock %}
 
-        </div>
+<div class="col-sm-3 col-md-2 sidebar">
+
+    {% block side_block %}
+    {% get_category_list category %}
+    {% endblock %}
+
+</div>
+
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
            <div>
                 {% block body_block %}{% endblock %}
@@ -64,9 +88,7 @@
       </div>
     </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- Bootstrap core JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

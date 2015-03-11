@@ -1,0 +1,29 @@
+{% extends "rango/base.html" %}
+
+{% block body_block %}
+
+    <div class="hero-unit">
+	
+        <h2>Hello, {{ user.username }}, this is your profile page</h2
+		
+        <p>Your email: {{ user.email }}</p>
+
+        {% if profile %}
+         <p>Your website: <a href = "{{ profile.website }}">{{ profile.website }}</a></p>
+		 
+         {% if profile.picture %}
+		 
+             <img width="400" height="400" src = "{{ profile.picture.url }}" alt="nothing to show" />
+			 
+         {% endif %}
+		 
+        {% endif %}
+		
+        {% if myprofile %}
+		
+            </br></br><p><a href = "{% url 'edit_profile' %}">Edit Your Information</a></p>
+			
+        {% endif %}
+		
+    </div>
+{% endblock %}
