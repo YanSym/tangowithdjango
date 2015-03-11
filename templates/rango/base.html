@@ -4,13 +4,6 @@
 
 {% load rango_extras %}
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> 4cf7857f20d97c81bd89ed51076d053f38466ee0
->>>>>>> 8dd1d75abe71893f29efe74a1b1c6a6d4bcaef9e
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -54,7 +47,6 @@
           <ul class="nav navbar-nav navbar-right">
                 <li><a href="{% url 'index' %}">Home</a></li>
                     {% if user.is_authenticated %}
-<<<<<<< HEAD
 						<li><a href="{% url 'profile' %}">Profile Page</a></li>
 						
 						<li><a href="{% url 'restricted' %}">Restricted Page</a></li>
@@ -72,18 +64,6 @@
 						<li><a href="{% url 'auth_login' %}">Login</a></li>
 					{% endif %}
 					<li><a href="{% url 'about' %}">About Page</a></li>
-=======
-                        <li><a href="{% url 'restricted' %}">Restricted Page</a></li>
-                        <li><a href="{% url 'auth_logout' %}?next=/rango/">Logout</a></li>
-			<li><a href="{% url 'search' %}">Search</a></li>
-                        <li><a href="{% url 'add_category' %}">Add a New Category</a></li>
-                    {% else %}
-                        <li><a href="{% url 'registration_register' %}">Register Here</a></li>
-                        <li><a href="{% url 'auth_login' %}">Login</a></li>
-                    {% endif %}
-                                <li><a href="{% url 'about' %}">About</a></li>
-
->>>>>>> 8dd1d75abe71893f29efe74a1b1c6a6d4bcaef9e
               </ul>
         </div>
       </div>

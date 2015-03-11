@@ -8,12 +8,10 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from datetime import datetime
 from rango.bing_search import run_query
-<<<<<<< HEAD
 
 #new
 from django.contrib.auth.models import User
-=======
->>>>>>> 8dd1d75abe71893f29efe74a1b1c6a6d4bcaef9e
+
 
 # Import the Category model
 from rango.models import Category
@@ -116,12 +114,12 @@ def category(request, category_name_slug):
         # Can we find a category name slug with the given name?
         # If we can't, the .get() method raises a DoesNotExist exception.
         # So the .get() method returns one model instance or raises an exception.
-<<<<<<< HEAD
+
         category = Category.objects.get(slug=category_name_slug)
-=======
+
         temp = Category.objects.filter(slug=category_name_slug)
         category = temp[0]
->>>>>>> 8dd1d75abe71893f29efe74a1b1c6a6d4bcaef9e
+
 		
         context_dict['category_name'] = category.name
 
@@ -335,7 +333,6 @@ def add_category(request):
     else:
         form = CategoryForm()
     return render(request, 'rango/add_category.html', {'form': form})
-	
 	
 @login_required
 def restricted(request):

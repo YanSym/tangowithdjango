@@ -83,7 +83,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-<<<<<<< HEAD
-
-=======
->>>>>>> 8dd1d75abe71893f29efe74a1b1c6a6d4bcaef9e
