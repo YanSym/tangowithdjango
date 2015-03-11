@@ -9,6 +9,7 @@ urlpatterns = patterns('',
 	url(r'^category/(?P<category_name_slug>[\w\-]+)/add_page/$', views.add_page, name='add_page'), # NEW MAPPING!
 	url(r'^category/(?P<category_name_slug>[\w\-]+)/$', views.category, name='category'),
 	url(r'^restricted/', views.restricted, name='restricted'),
+<<<<<<< HEAD
 	
 	#new profile related urls
 	url(r'^profile/$', views.profile, name='profile'),
@@ -26,6 +27,10 @@ urlpatterns = patterns('',
 	
 	#removed urls
 	#url(r'^search/', views.search, name='search'),
+=======
+	url(r'^register/$', views.register, name='register'),
+	url(r'^search/', views.search, name='search'),
+>>>>>>> 8dd1d75abe71893f29efe74a1b1c6a6d4bcaef9e
 
 	#url(r'^login/$', views.user_login, name='login'),
 	#url(r'^logout/$', views.user_logout, name='logout'),
