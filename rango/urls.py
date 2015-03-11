@@ -23,9 +23,9 @@ urlpatterns = patterns('',
 
 	#url to track urls of pages to get views
         url(r'^goto/$', views.track_url,  name='goto'),
+		url(r'^search/', views.search, name='search'),
 	
 	#removed urls
-	#url(r'^search/', views.search, name='search'),
 	# url(r'^register/$', views.register, name='register'),
 	# url(r'^search/', views.search, name='search'),
 
